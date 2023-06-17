@@ -1,0 +1,28 @@
+.sidebar {
+  position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 900;
+    padding: 48px 20px;
+    background-color: #f8f9fa;
+    font-size-adjust: true;
+    font-size: small;
+    width:230px
+  }
+
+  .sidebar .nav-link {
+    color: #333;
+  }
+
+  .content {
+    margin-left: 220px;
+    padding: 20px;
+  }
+  ul {
+    list-style: none;
+  }
+  
+  ul li {
+    text-decoration: none;
+  }

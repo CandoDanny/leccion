@@ -1,0 +1,45 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Nuevo Docente</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('close')"></button>
+    </div>
+    <div class="modal-body">
+        <app-docente-ingreso
+            (guardar) = "modal.close('ok')"
+            (cancelar) = "modal.close('ok')"
+        >
+        </app-docente-ingreso>
+    </div>
+</ng-template>
+
+<div class="row animated fadeIn fast">
+    <div class="col-4"></div>
+    <div class="col-4"></div>
+
+    <div class="col-4 mb-4 mt-4">
+        <div class="text-right">
+            <button class="btn btn-primary mt-4"
+               
+               (click)="agregarDocente(content)"
+            >
+                Agregar Docente
+        </button>
+        </div>
+    </div>
+</div> 
+
+<app-table 
+    [titulo]="'Docentes'"
+    [docentes]="docentes"
+    [permitirEliminar]="true"
+    (eliminar)="eliminarDocente($event)">
+
+</app-table>
+
+<app-table 
+    [titulo]="'Docentes Eliminados'"
+    [docentes]="docentesEliminados"
+    (eliminar)="eliminarDocente($event)">
+
+</app-table>
+

@@ -1,0 +1,59 @@
+<div class="row animated fadeIn fast" 
+    >
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <h4 class="card-title">{{titulo}} ({{ docentes.length }})</h4>
+                        <h6 class="card-subtitle">
+                            Usuarios
+                        </h6>
+                    </div>
+
+                   
+                </div>
+               
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Dirección</th>
+                                <th>Fecha de Ingreso</th>
+                                
+                                <th *ngIf="permitirEliminar" class="text-nowrap w100">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let docente of docentes">
+                                
+                                <td>{{ docente.nombre }}</td>
+                                <td>{{ docente.apellido }}</td>
+                                <td>{{ docente.fechaNacimiento | date : 'dd/MM/yyyy' }}</td>
+                                <td>{{ docente.direccion }}</td>
+                                <td>{{ docente.fechaIngreso | date : 'dd/MM/yyyy' }}</td>
+
+                                <td class="text-nowrap text-center" *ngIf="permitirEliminar">  
+                                             
+                                    <a data-toggle="tooltip" 
+                                        data-original-title="Borrar"
+                                        class="cursor"
+                                        (click)="eliminarDocente(docente)">
+                                        <i class="fa fa-close text-danger"></i> 
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
